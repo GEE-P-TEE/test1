@@ -1,0 +1,275 @@
+# Design Guidelines for Gwapo Mango Tours
+
+## 1. General Design Overview
+
+Gwapo Mango Tours is a premium mobile-first booking platform that celebrates the tropical paradise of Guimaras through immersive mango farm experiences. The design should evoke the warmth of Filipino hospitality, the vibrant colors of tropical landscapes, and the premium quality of Guimaras mangoes. The UI should feel approachable yet sophisticated, targeting both local Filipino tourists seeking local adventures and international visitors exploring authentic Philippine experiences.
+
+The overall personality is **warm, inviting, and trustworthy** – like being welcomed by a local friend who knows all the best spots. Every interaction should reinforce the excitement of discovery while maintaining the professionalism expected from a premium tour operator.
+
+### 1.1 Core Design Principles
+
+• **Tropical Authenticity** - Embrace vibrant mango oranges and lush greens that reflect Guimaras' natural beauty  
+• **Mobile-First Simplicity** - Streamlined booking flow optimized for smartphone users on-the-go  
+• **Cultural Warmth** - Design elements that celebrate Filipino hospitality and local pride  
+• **Trust & Transparency** - Clear pricing, honest imagery, and straightforward booking process  
+• **Sensory Appeal** - Visual design that makes users almost taste the mangoes and feel the tropical breeze
+
+---
+
+## 2. Color Scheme
+
+### Primary Colors
+- **Mango Orange** - `#FF8C42`
+  - Purpose: Primary CTAs, active states, brand highlights, tour pricing
+- **Tropical Green** - `#2ECC71`
+  - Purpose: Success states, availability indicators, nature elements, secondary CTAs
+
+### Supporting Colors
+- **Pure White** - `#FFFFFF`
+  - Purpose: Card backgrounds, primary text areas, clean sections
+- **Soft Cream** - `#FFF8F0`
+  - Purpose: Page backgrounds, subtle section dividers, warmth
+- **Deep Forest** - `#1B4332`
+  - Purpose: Primary text, navigation, headers for high contrast
+- **Warm Gray** - `#6B7280`
+  - Purpose: Secondary text, form labels, subtle elements
+
+---
+
+## 3. Typography
+
+### 3.1 Font Family
+- **Primary Font**: Inter (Google Fonts)
+- **Fallback**: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
+
+### 3.2 Font Weights & Hierarchy
+- **Headlines**: 700 Bold (tour titles, hero headings)
+- **Subheadings**: 600 SemiBold (section headers, card titles)
+- **Body Text**: 400 Regular (descriptions, content)
+- **Button Labels**: 500 Medium (CTAs, navigation)
+- **Captions**: 400 Regular (image captions, fine print)
+
+### 3.3 Font Sizes (Mobile First)
+- **H1 Hero**: 32px / 2rem (tour name, main headlines)
+- **H2 Section**: 24px / 1.5rem (page sections, major features)
+- **H3 Cards**: 20px / 1.25rem (tour stops, feature cards)
+- **Body Text**: 16px / 1rem (descriptions, content)
+- **CTA Buttons**: 16px / 1rem (booking buttons, primary actions)
+- **Labels**: 14px / 0.875rem (form fields, metadata)
+- **Captions**: 12px / 0.75rem (image credits, fine print)
+
+---
+
+## 4. UI Components
+
+### Homepage/Dashboard
+**Layout**: Hero section with full-width mango farm imagery and "Book Your Mango Adventure" CTA, followed by stacked feature cards with generous white space. Tour highlights displayed as white cards with soft shadows. Bottom navigation for easy thumb navigation.
+
+**Interactive Elements**:
+- **Hero CTA Button**: Large rounded button in Mango Orange with subtle shadow and press animation
+- **Tour Highlight Cards**: White cards with soft shadows, featuring tour stop images and key details (₱3,500 per person, Max 12 guests)
+- **Quick Booking Widget**: Mobile-optimized floating card with date picker and guest selector, always accessible
+- **Testimonial Carousel**: Horizontal swipe cards with customer photos and reviews
+
+**Color Behavior**: Hero section uses gradient overlay from Mango Orange to transparent, allowing text readability over farm imagery. Cards maintain white backgrounds with Mango Orange accents for CTAs.
+
+### Tour Details Page
+**Layout**: Sticky header with tour name and price, followed by complete itinerary breakdown in timeline-style cards (7:00 AM pickup through 5:00 PM drop-off), inclusion/exclusion lists, and prominent booking CTA.
+
+**Interactive Elements**:
+- **Timeline Cards**: Vertical timeline with time stamps in Tropical Green and location cards in white showing Oro Verde Plantation, Research Center, lunch, Wonder's Farm, and Bee Center
+- **Image Gallery**: Swipeable photo carousel for each tour stop
+- **Expandable Sections**: "What to Bring" and "Tour Guidelines" with smooth accordion animation
+- **Sticky Book Now**: Floating bottom CTA that follows scroll, always visible
+
+**UX Behavior**: Timeline cards expand on tap to show more details and photos. Smooth scroll-to-section navigation from sticky header tabs.
+
+### Booking System Page
+**Layout**: Multi-step form with progress indicator, interactive calendar using React Big Calendar component, guest count selector (max 12 people validation), real-time price calculation (₱3,500 × guests), contact form, and PayMongo payment integration.
+
+**Interactive Elements**:
+- **Calendar Component**: Custom React Big Calendar with available dates in Tropical Green, fully booked dates excluded, selected in Mango Orange
+- **Guest Counter**: Plus/minus buttons with real-time price calculation display and 12-person maximum validation
+- **Payment Integration**: Toggle between GCash and Credit Card via PayMongo with appropriate icons and colors
+- **Form Validation**: Real-time validation with gentle error states and booking confirmation generation
+
+**Responsive Behavior**: Calendar switches to mobile-optimized month view. Payment forms stack vertically on mobile with large touch targets. Email notifications sent to customers and admin upon booking completion.
+
+### About Us Page
+**Layout**: Company story and passion for Guimaras, team introduction with flip cards, commitment to sustainable tourism, and safety protocols/certifications display.
+
+**Interactive Elements**:
+- **Team Flip Cards**: Interactive cards showing team member photos and local guide bios
+- **Interactive Story Timeline**: Company milestones and tourism commitment timeline
+- **Certification Badges**: Tappable DOT accreditation and safety protocol badges
+- **Contact Cards**: Direct links to WhatsApp, email, and phone with appropriate icons
+
+**Color Usage**: Team cards use Soft Cream backgrounds with Mango Orange accents. Certification badges use Tropical Green for verified status.
+
+### Photo Gallery Page
+**Layout**: Masonry grid layout showcasing tour experiences from previous tours, organized by location and activity type.
+
+**Interactive Elements**:
+- **Filter Tabs**: Horizontal scrollable tabs for "All Tours", "Mango Farms", "Happy Guests", "Local Culture"
+- **Lightbox Gallery**: Full-screen image viewer with swipe navigation
+- **Share Buttons**: Social sharing for individual photos with tour branding
+- **Load More**: Infinite scroll with skeleton loading states
+
+**Visual Style**: High-quality authentic photos with subtle rounded corners and hover states with Mango Orange overlay and "View Full Size" text.
+
+### Profile/Booking Management Page
+**Layout**: User dashboard with upcoming bookings, booking history, account settings, and booking receipt download options in organized card sections.
+
+**Interactive Elements**:
+- **Booking Cards**: Expandable cards showing tour details, dates, pickup instructions, and status
+- **Status Indicators**: Color-coded status (confirmed in Tropical Green, pending in Mango Orange)
+- **Quick Actions**: Cancel, reschedule, or WhatsApp support buttons with confirmation modals
+- **Download Receipt**: PDF generation for booking confirmations with unique booking codes
+
+**Security Features**: "Are you sure you want to cancel this ₱10,500 booking?" confirmation modals, masked payment information display, secure logout with session timeout warnings.
+
+---
+
+## 5. Mobile UX & Accessibility
+
+### Bottom Navigation
+- **Background**: White with subtle shadow, 60px height
+- **Active State**: Mango Orange tropical-themed icons and text with subtle background highlight
+- **Inactive State**: Warm Gray icons with labels
+- **Icons**: Home, Tours, Bookings, Gallery, Profile using tropical-themed iconography (palm trees, mangoes, boats)
+
+### Touch Targets & Spacing
+- **Minimum Touch Target**: 44px × 44px for all interactive elements
+- **Button Padding**: 12px vertical, 24px horizontal minimum
+- **Card Spacing**: 16px margins between cards, 24px section spacing
+- **Form Fields**: 48px height with 16px internal padding
+
+### Accessibility Features
+- **High Contrast Mode**: Alternative color scheme with deeper greens and oranges for accessibility
+- **Focus Indicators**: 2px Mango Orange outline for keyboard navigation
+- **Screen Reader**: Proper ARIA labels for all interactive elements
+- **Text Scaling**: Responsive typography that scales up to 200% without breaking layout
+
+### Scroll Behavior
+- **Smooth Scrolling**: CSS scroll-behavior for anchor links and navigation
+- **Sticky Elements**: Tour booking CTA and navigation header with smooth transitions
+- **Pull-to-Refresh**: Native mobile refresh with custom animated mango loading spinner
+
+---
+
+## 6. Icons & Visual Style
+
+### Icon Set
+- **Primary**: Lucide React icons for consistency and crisp rendering
+- **Custom Tropical Icons**: Mango, palm tree, boat, and Filipino cultural elements
+- **Size Standards**: 16px (small), 20px (medium), 24px (large), 32px (hero)
+
+### Icon Color Usage
+- **Active/Primary**: Mango Orange `#FF8C42`
+- **Success/Available**: Tropical Green `#2ECC71`
+- **Inactive/Disabled**: Warm Gray `#6B7280`
+- **Navigation**: Deep Forest `#1B4332` for contrast
+
+### Photography Guidelines
+- **Hero Images**: High-resolution authentic mango farm landscapes, golden hour lighting preferred
+- **Tour Stop Photos**: Unfiltered images showing real Oro Verde Plantation, Research Center, and Wonder's Farm experiences
+- **People Photography**: Diverse tourists enjoying activities, genuine smiles and interactions
+- **Food Photography**: Close-up mango and mango honey shots with vibrant, appetizing colors
+
+### Illustration Style
+- **Minimal Line Art**: Simple tropical elements (palm leaves, mangoes, boats) in Mango Orange
+- **Cultural Elements**: Subtle Filipino patterns and motifs as background textures
+- **Animated Loading States**: Mango icon with gentle bounce animation for loading states
+
+---
+
+## 7. Microinteractions & Animations
+
+### Page Transitions
+- **Primary**: Slide transitions (right-to-left for forward navigation, left-to-right for back)
+- **Duration**: 300ms with ease-out timing function
+- **Booking Flow**: Smooth slide-up modals for calendar and PayMongo payment forms
+
+### Interactive Feedback
+- **Button Hover Effects**: Subtle scale (1.02x) with shadow increase, 150ms transition
+- **Card Hover**: Gentle lift effect with shadow expansion, 200ms transition
+- **Form Focus**: Mango Orange border with smooth color transition, 200ms
+- **Loading States**: Skeleton screens with shimmer effect in Soft Cream
+
+### Progress Indicators
+- **Booking Progress**: Multi-step form indicator with Mango Orange fill and Tropical Green completion
+- **Calendar Loading**: Subtle fade-in for available dates, 300ms stagger
+- **Image Loading**: Progressive blur-to-sharp with fade-in effect
+- **Form Submission**: Button transforms to loading spinner, then success checkmark
+
+### Gesture Animations
+- **Swipe Feedback**: Subtle card movement following finger position in testimonial carousel
+- **Pull-to-Refresh**: Mango icon rotation with elastic bounce
+- **Scroll Indicators**: Fade-in/out navigation dots for image carousels
+
+---
+
+## 8. Performance Considerations
+
+### Image Optimization
+- **Format**: WebP with JPEG fallback for maximum compatibility
+- **Responsive Images**: Multiple sizes (320px, 768px, 1024px, 1920px) with srcset
+- **Lazy Loading**: Intersection Observer API for images below the fold
+- **Compression**: 85% quality for photos, lossless for graphics and icons
+
+### Mobile Optimization
+- **Code Splitting**: Separate bundles for booking flow and gallery pages
+- **Critical CSS**: Inline critical styles for above-the-fold content
+- **Font Loading**: font-display: swap for Inter font family
+- **Service Worker**: Cache tour images and essential app shell for offline browsing
+
+### Loading Strategies
+- **Hero Images**: Preload above-the-fold mango farm imagery
+- **Calendar Data**: Prefetch next 3 months of availability using React Big Calendar
+- **Progressive Enhancement**: Core booking functionality works without JavaScript
+- **CDN**: Serve images from Philippine-based CDN for local users
+
+### Caching Strategy
+- **Static Assets**: 1 year cache for images, fonts, and versioned CSS/JS
+- **API Responses**: 5-minute cache for availability data, 1 hour for tour information
+- **Offline Support**: Cache essential pages and booking forms for intermittent connectivity
+
+---
+
+## 9. Security & Privacy Design
+
+### Booking Security
+- **Confirmation Modals**: "Are you sure you want to cancel this ₱10,500 booking?" with clear consequences
+- **PCI Compliance**: PayMongo integration with security badge display and encrypted payment forms
+- **Session Management**: Auto-logout after 30 minutes of inactivity with warning countdown
+- **Data Encryption**: Visual indicators for secure connections (lock icons, HTTPS badges)
+
+### Privacy Protection
+- **GDPR Compliance**: Easy data export/deletion options in profile settings
+- **Data Collection Notice**: Clear, friendly explanation of what booking and contact data is collected
+- **Payment Information**: Masked card numbers (****-****-****-1234) in booking history
+- **Photo Consent**: Clear opt-in for using customer photos in gallery and marketing
+
+### User Data Safety
+- **Secure Forms**: Visual validation for password strength and secure field indicators
+- **Two-Factor Options**: SMS verification for high-value bookings over ₱20,000
+- **Account Recovery**: Secure password reset flow with email verification
+- **Booking Verification**: Email and SMS confirmations with unique booking codes
+
+### Trust Indicators
+- **Security Badges**: PayMongo and SSL certificate displays on payment pages
+- **DOT Accreditation**: Department of Tourism certification and business permit numbers in footer
+- **Contact Transparency**: Physical Jordan Port address, WhatsApp, phone numbers, and business hours clearly displayed
+- **Verified Bookings**: Authenticated customer testimonials with verified booking badges
+
+---
+
+## Conclusion
+
+The Gwapo Mango Tours design system creates a cohesive, trustworthy, and delightful booking experience that captures the essence of Guimaras' tropical paradise. By combining the warmth of Mango Orange with the freshness of Tropical Green, the interface feels both premium and approachable – perfect for Filipino tourists from other provinces and international visitors exploring authentic Philippine experiences.
+
+The mobile-first approach with React Big Calendar integration ensures seamless booking experiences whether users are planning from Iloilo City or making spontaneous bookings while island-hopping. Every interaction reinforces the brand's commitment to quality, safety, and genuine Filipino hospitality, from the ₱3,500 transparent pricing to the maximum 12-guest intimate experience promise.
+
+The design successfully balances cultural authenticity with modern usability, creating an interface that feels distinctly Filipino while meeting international standards for accessibility and user experience. The PayMongo integration, DOT accreditation display, and comprehensive booking management system establish trust while the tropical iconography and mango-themed animations build excitement for the adventure ahead.
+
+Through thoughtful color psychology, intuitive navigation, and trust-building design elements, the platform transforms the booking process from a transaction into the first step of an unforgettable Guimaras mango farm journey – making Gwapo Mango Tours the premier choice for authentic tropical experiences in the Philippines.
